@@ -1,0 +1,6 @@
+//section[starts-with(@id,'profileCard')][1]//ul[starts-with(@class, 'pvs-list')]//li[starts-with(@class, 'artdeco-list')][1]
+
+with link: //section[starts-with(@id,'profileCard')][1]//ul[starts-with(@class, 'pvs-list')]//li[starts-with(@class, 'artdeco-list')][1]//div//div[@class='']//a[starts-with(@class, 'app-aware-link')][@href]
+
+//section[starts-with(@id,'profileCard')][1]//ul[starts-with(@class, 'pvs-list')]//li[starts-with(@class, 'artdeco-list')][1]//div//div//a[starts-with(@class, 'app-aware-link')]
+
