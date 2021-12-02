@@ -72,12 +72,27 @@ for row in range(rows):
 
         wait= WebDriverWait(driver, 5)
         connection = driver.find_element_by_class_name('dist-value').get_attribute("innerHTML").strip()
-        name = driver.find_element_by_class_name('text-heading-xlarge').get_attribute("innerHTML")
-        
-        job_title = driver.find_element_by_class_name('text-body-medium break-words'.replace(' ', '.')).get_attribute("innerHTML").strip()
-        location = driver.find_element_by_class_name('text-body-small inline t-black--light break-words'.replace(' ', '.')).get_attribute("innerHTML").strip()
-        time.sleep(scrollPauseTime+1)
-        company_link = driver.find_element(By.XPATH, "")
+        if(connection == '1st'):
+            name = driver.find_element_by_class_name('text-heading-xlarge').get_attribute("innerHTML")
+            job_title = driver.find_element_by_class_name('text-body-medium break-words'.replace(' ', '.')).get_attribute("innerHTML").strip()
+            location = driver.find_element_by_class_name('text-body-small inline t-black--light break-words'.replace(' ', '.')).get_attribute("innerHTML").strip()
+            time.sleep(scrollPauseTime+1)
+            company_link = driver.find_element(By.XPATH, "//*[@data-field='experience_company_logo']").get_attribute("href")
+            contactDetails = driver.find_element_by_link_text('Contact info')
+            contactDetails.click()
+            time.sleep(scrollPauseTime+2)
+            email_section =  driver.find_element(By.XPATH, "//section[@class='pv-contact-info__contact-type ci-email']")
+            email = email_section.find_element_by_class_name('pv-contact-info__contact-link link-without-visited-state t-14'.replace(' ', '.')).get_attribute("innerHTML").strip()
+            print(company_link, " ", email)
+            print(name, connection, job_title, location)
+        else:
+            name = driver.find_element_by_class_name('text-heading-xlarge').get_attribute("innerHTML")
+            job_title = driver.find_element_by_class_name('text-body-medium break-words'.replace(' ', '.')).get_attribute("innerHTML").strip()
+            location = driver.find_element_by_class_name('text-body-small inline t-black--light break-words'.replace(' ', '.')).get_attribute("innerHTML").strip()
+            time.sleep(scrollPauseTime+1)
+            company_link = driver.find_element(By.XPATH, "//*[@data-field='experience_company_logo']").get_attribute("href")
+            print(company_link)
+            print(name, connection, job_title, location)
         
 
         print(company_link)
